@@ -5,7 +5,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <title>The Land</title>
 </head>
-<body>
+<body id="body">
     <div "content-div"></div>
         <header>
             <nav class="navigation">
@@ -19,7 +19,8 @@
     </div>
     <div class="content-div">
         <section>
-            <h1 class="hero">Cleveland</h1>
+            <h1 onmouseover="addSize()" onmouseout="removeSize()" id="hero" class="hero">Cleveland</h1>
+            <button onclick="changeColor()" class="button">Change my background!</button>
             <h3>The Forest City</h3>
             <p>
                 Cleveland is a Midwestern city known for its <a href="http://www.espn.com/nfl/story/_/id/21988677/photos-cleveland-browns-perfect-season-parade">stellar football team</a>, 
@@ -27,13 +28,25 @@
                 In addition to having a great sense of humor about their town, Clevelanders are passionate about sports, dedicated to the arts, open-minded,
                 and incredibly laid back. 
             </p>
+            <p>
+                Curabitur bibendum, ante nec faucibus porta, purus metus interdum augue, vitae aliquet ex enim nec odio. Ut sem justo, 
+                varius sit amet convallis vitae, elementum ultrices ipsum. Maecenas condimentum egestas quam, sit amet maximus metus pharetra id. Curabitur posuere sapien eu ante 
+                luctus imperdiet. Phasellus risus lorem, dignissim sed leo vitae, fringilla egestas justo. Ut ut mi leo. Nulla facilisi. Vivamus porta pulvinar felis, eu tempor massa tincidunt ut. 
+                Vestibulum venenatis molestie augue. Integer tincidunt erat justo, non tincidunt libero tincidunt vel. In ullamcorper ligula eu nibh porta, eu rhoncus ligula tincidunt.
+            </p>
         </section>
         <section>
-            <h3>The Demographics</h3>
+            <h3 id="demographics">The Demographics</h3>
             <p>
                 Cleveland is a large, metropolitan city with a population of almost 400,000 people. 
                 It is part of the combined Cleveland-Akron area, which comrpises over 3.5 million people,
                 ranking it 15th most populous in the United States. Read more <a href="https://en.wikipedia.org/wiki/Demographics_of_Cleveland">here.</a>
+            </p>
+            <p>
+                Curabitur bibendum, ante nec faucibus porta, purus metus interdum augue, vitae aliquet ex enim nec odio. Ut sem justo, 
+                varius sit amet convallis vitae, elementum ultrices ipsum. Maecenas condimentum egestas quam, sit amet maximus metus pharetra id. Curabitur posuere sapien eu ante 
+                luctus imperdiet. Phasellus risus lorem, dignissim sed leo vitae, fringilla egestas justo. Ut ut mi leo. Nulla facilisi. Vivamus porta pulvinar felis, eu tempor massa tincidunt ut. 
+                Vestibulum venenatis molestie augue. Integer tincidunt erat justo, non tincidunt libero tincidunt vel. In ullamcorper ligula eu nibh porta, eu rhoncus ligula tincidunt.
             </p>
         </section>
         <section>
@@ -41,14 +54,23 @@
             <p>
                 Many people call the Cleveland area their home, including Caroline Furness the astronomer, The Russo Brothers (directors), and Langston Huges, the poet. Read more <a href="https://en.wikipedia.org/wiki/List_of_people_from_Cleveland">here.</a>
             </p>
+            <p>
+                Curabitur bibendum, ante nec faucibus porta, purus metus interdum augue, vitae aliquet ex enim nec odio. Ut sem justo, 
+                varius sit amet convallis vitae, elementum ultrices ipsum. Maecenas condimentum egestas quam, sit amet maximus metus pharetra id. Curabitur posuere sapien eu ante 
+                luctus imperdiet. Phasellus risus lorem, dignissim sed leo vitae, fringilla egestas justo. Ut ut mi leo. Nulla facilisi. Vivamus porta pulvinar felis, eu tempor massa tincidunt ut. 
+                Vestibulum venenatis molestie augue. Integer tincidunt erat justo, non tincidunt libero tincidunt vel. In ullamcorper ligula eu nibh porta, eu rhoncus ligula tincidunt.
+            </p>
         </section>
     </div>
     <div class="content-div">
+        <button onclick="showNews()"class="button">Get latest news...</button>
         <footer class="footer">
+            <div id="news"></div>
             <ul>
                 <li>&#169; 2018</li>
             </ul>
         </footer>
     </div>
+    <script src="scripts/myscript.js"></script>
 </body>
 </html>
