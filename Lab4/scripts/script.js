@@ -1,7 +1,7 @@
 
 let gameBoard = [
     { "id":"0","question":"What does the F stand for in FBI?", "correct":"1", "answers":[ "Fun", "Federal", "Financial" ]},
-    { "id":"1","question":"What Great Lake is in Cleveland, OH?","correct":"0","answers":[ "Cleveland", "Michigan", "Ontario"]},
+    { "id":"1","question":"Where is Lake Erie?","correct":"0","answers":[ "Cleveland", "Michigan", "Ontario"]},
     { "id":"2","question":"Where is the Statue of Liberty?", "correct":"2","answers":[ "Toronto", "Los Angeles", "New York City"]},
 ]
 
