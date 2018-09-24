@@ -1,6 +1,8 @@
 
 let gameBoard = [];
+let currentPlayer = null;
 const player1 = {name: "Player1", piece: "X"};
+const computer = {name: "Computer", piece: "O"};
 
 window.onload = function(){
     document.querySelectorAll('#board td')
@@ -12,9 +14,8 @@ window.onload = function(){
         
         //if element has not been clicked
         if(!gameBoard.includes(id)){
-            //select box
-            selectBox(id, player1);
-            addBackground(id);
+            //Run
+            runGame(id);
         } else{
             console.log("already taken");
             console.log("Gameboard contains: " + gameBoard);
@@ -29,19 +30,25 @@ window.onload = function(){
     }));
 }
 
-function selectBox(id, player1) {
+function runGame(id){
+    if(currentPlayer == null || currentPlayer.name == "Computer"){
+        currentPlayer = player1;
+    }else{
+        currentPlayer = computer
+    }
+    console.log(currentPlayer);
+    selectBox(id, currentPlayer);
+}
+
+function selectBox(id, currentPlayer) {
     gameBoard.push(id);
     let element = document.getElementById(id);
-    element.innerHTML = player1.piece;
+    element.classList.add("td-background");
+    element.innerHTML = currentPlayer.piece;
 
     //check 
     console.log("Current id is: " + id)
     console.log("Gameboard contains: " + gameBoard);
-}
-
-function addBackground(id) {
-    let element = document.getElementById(id);
-    element.classList.add("td-background");
 }
 
 function ResetBoard(){
@@ -60,7 +67,7 @@ function checkGameState(){
         state8: [2, 4, 6]
     }
 
-    if (gameBoard.length <= 2){
+    if (gameBoard.length <= 4){
         runGame();
     }else{
 
