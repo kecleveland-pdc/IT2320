@@ -3,6 +3,17 @@ let gameBoard = [];
 let currentPlayer = null;
 const player1 = {name: "Player1", piece: "X"};
 const computer = {name: "Computer", piece: "O"};
+var winningState = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+]
+
 
 window.onload = function(){
     document.querySelectorAll('#board td')
@@ -38,6 +49,7 @@ function runGame(id){
     }
     console.log(currentPlayer);
     selectBox(id, currentPlayer);
+    checkGameState();
 }
 
 function selectBox(id, currentPlayer) {
@@ -56,25 +68,15 @@ function ResetBoard(){
 }
 
 function checkGameState(){
-    var winningState = {
-        state1: [0, 1, 2],
-        state2: [3, 4, 5],
-        state3: [6, 7, 8],
-        state4: [0, 3, 6],
-        state5: [1, 4, 7],
-        state6: [2, 5, 8],
-        state7: [0, 4, 8],
-        state8: [2, 4, 6]
-    }
-
-    if (gameBoard.length <= 4){
-        runGame();
-    }else{
-
-        for(let state in winningState)
-        {
-            
+    for(let state in winningState)
+    {
+        console.log(state[0].innerHTML.toString);
+        if(state[0].innerHTML == "X" && state[1].innerHTML == "X" && state[2].innerHTML == "X"){
+            innerHTML.getElementById("reset").InnerHTML = "Player1 wins!";
+        }else if(state[0].innerHTML == "O" && state[1].innerHTML == "O" && state[2].innerHTML == "O"){
+                innerHTML.getElementById("reset").InnerHTML = "Computer!";
         }
     }
 }
+
 
