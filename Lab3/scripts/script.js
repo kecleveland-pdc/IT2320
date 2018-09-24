@@ -70,12 +70,13 @@ function ResetBoard(){
 function checkGameState(){
     for(let state in winningState)
     {
-        console.log(state[0].innerHTML.toString);
-        if(state[0].innerHTML == "X" && state[1].innerHTML == "X" && state[2].innerHTML == "X"){
-            innerHTML.getElementById("reset").InnerHTML = "Player1 wins!";
-        }else if(state[0].innerHTML == "O" && state[1].innerHTML == "O" && state[2].innerHTML == "O"){
-                innerHTML.getElementById("reset").InnerHTML = "Computer!";
-        }
+        for(let i=0; i < state.length; i++)
+        console.log(state[i]);
+        // if(state[0].innerHTML.TextContext == "X" && state[1].innerHTML.TextContext == "X" && state[2].innerHTML.TextContext == "X"){
+        //     innerHTML.getElementById("reset").InnerHTML = "Player1 wins!";
+        // }else if(state[0].innerHTML.TextContext  == "O" && state[1].TextContext  == "O" && state[2].TextContext  == "O"){
+        //         innerHTML.getElementById("reset").InnerHTML = "Computer!";
+        // }
     }
 }
 
