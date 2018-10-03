@@ -69,30 +69,33 @@ function AddNumbers()
 
 function EvenOrOddCalc()
 {    
-    var evenOddFlag = EvenOrOdd;
+    var evenOddFlag = EvenOrOdd();
     console.log(evenOddFlag);
 }
 
-
 function EvenOrOdd()
 {    
-    document.getElementById("display-panel").innerHTML="";
-    var evenOdd = [13,4,2,67,94,35,654];
-    var even=odd="";
-    var i=j=0;
-    var flag=0;
+    document.getElementById("display-panel").innerHTML = "";
 
-   for(i=0;i<evenOdd.length;i++)    
+    const evenOdd = [13, 4, 2, 67, 94, 35, 654];
+    let even = "";
+    let odd = "";
+    let i = 0;
+    let flag = 0;
+
+   for(let i = 0; i <= evenOdd.length - 1; i++)    
    {
-        flag = evenOdd[i]%2;
-        if (flag = 0)
-            even+=" "+evenOdd[i];
+        flag = evenOdd[i] % 2;
+
+        if (flag === 0)
+            even += `${evenOdd[i]} `;
         else
-            odd+=" "+evenOdd[i];
+            odd += `${evenOdd[i]} `;
         
     };
-    document.getElementById("display-panel").innerHTML="<p>Given numbers: "+evenOdd+"</p>";
-    document.getElementById("display-panel").innerHTML+="<p>Even:  "+even+" Odd: "+odd+"</p>";
+
+    document.getElementById("display-panel").innerHTML = `<p>Given numbers: ${evenOdd} </p>`;
+    document.getElementById("display-panel").innerHTML +=  `<p>Even: ${even} Odd: ${odd} </p>`
     
     return true;
 }
