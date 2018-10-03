@@ -1,69 +1,56 @@
 function displayFruits()
 {
-    document.getElementById("display-panel").innerHTML="";
-    
     //Find the bug(s) in the code
     //We've classified fruits into 3 categories
     //We want all thh fruits to display in their right category
     //tropical:coconut, orange,grapefruit,pineapple,banana
     //subtropical:avocado,guava
     //not tropical:apple, grapes, kiwi, watermelon
+    
+    document.getElementById("display-panel").innerHTML="";
 
-    var fruits = ["apple","orange","banana","grapes","guava","coconut","grapefruit","kiwi","watermelon","pineapple","avocado"];
-    var displayText="";
+    const fruits = ["apple","orange","banana","grapes","guava","coconut","grapefruit","kiwi","watermelon","pineapple","avocado"];
+    let displayText = "";
 
-    for (i=0;i<5;i++)
+    for (let i = 0; i <= fruits.length - 1; i++)
     {
         displayText += "<p>"+ fruits[i];    
         displayText += " is "+ IsTropical(fruits[i]);
-        displayText+="</p>";        
+        displayText += "</p>";        
     }
-    document.getElementById("display-panel").innerHTML=displayText;
+    document.getElementById("display-panel").innerHTML = displayText;
 
 }
 
 function IsTropical(fruit)
 {
-    var tropicalMsg;
+    let tropicalMsg;
 
      switch (fruit){
-        case "apple":
-            tropicalMsg = "not tropical";
-            break;
-        case "banana":
-            tropicalMsg = "tropical";
-            break;
         case "coconut":
-            tropicalMsg = "tropical";
-        case "grapes":          
-            tropicalMsg = "not tropical";
+        case "orange": 
+        case "grapefruit": 
+        case "pineapple": 
+        case "banana":
+            tropicalMsg = "tropical"
             break;
-        case "orange":
-            tropicalMsg = "tropical";           
-        case "papaya":
-            tropicalMsg = "tropical";           
-            break;
-        case "peach":
-            tropicalMsg = "tropical";                          
-        case "guava":      
-            tropicalMsg = "sub tropical";           
-            break;   
-        case "pineapple":      
-            tropicalMsg = "tropical";           
-            break;
-        case "kiwi":
-            tropicalMsg = "tropical";           
         case "avocado":
-            tropicalMsg = "sub tropical";
-        case "grapefruit":
-            tropicalMsg = "tropical";           
+        case "guava":
+            tropicalMsg = "subtropical";
+            break;
+        case "apple":
+        case "grapes":
+        case "kiwi":
+        case "watermelon":
+            tropicalMsg = "not tropical";
             break;
         default:
-            tropicalMsg = "unable to determine fruit type";            
+            tropicalMsg = "unable to determine fruit type";         
     }
    
     return tropicalMsg;
 }
+
 function AddNumbers()
 {
     const numbers = [2, 4, 6, 8, 10, 12, 14];
