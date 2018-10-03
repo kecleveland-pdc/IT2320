@@ -100,37 +100,55 @@ function EvenOrOdd()
     return true;
 }
 
-
 function GenerateNumbers()
 {
     //There are 9 prime numbers and 10 odd numbers.Fix the bugs so the right count displays
+        //correction: there are 8 prime numbers, 9 odd numbers and 10 even numbers.
+        //prime numbers !== 2: 3, 5, 7, 11, 13, 17, 19
+        //odd prime numbers: 9, 15
 
-    var num = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-    var factorFound;
-    var prime=0;
-    for (i=0;i<num.length;i++)
+    const num = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+    let factorFound;
+    let prime = 0;
+    let odd = 0;
+
+    for (let i = 0; i <= num.length - 1 ; i++)
     {  
-        
+        //2 is automatically prime
         if (num[i] == 2)
-            prime++;
-        else
         {
-            for (j=2;j<num[i];j++) //Check from 2 to num-1 and see if the number has factors other than 1 and itself
+            prime++;
+        }
+        //if not even
+        else if(num[i] % 2 != 0)
+        {
+            //Check from 2 to num - 1 and see if the number has factors other than 1 and itself
+            for (let j = 2; j <= num[i] - 1; j++) 
             {
-                if ((num[i] % j)==0)                 
-                    factorFound++;                    
+                if ((num[i] % j) == 0) 
+                {
+                    factorFound++;
+                }                                       
             }
         
-            if (!factorFound) //No factors
+            if (!factorFound)
+            {
+                //No factors
+                console.log(num[i]);
                 prime++;
-        }
+            }
 
-        var odd=0;
-        if (num[i]%2 != 0)
+            //reset factorFound
+            factorFound = "";
+        } 
+
+        //odd numbers
+        if (num[i] % 2 != 0)
+        {
             odd++;
+        }
+    }
 
-   }
-    document.getElementById("display-panel").innerHTML="Given array "+num;
-    document.getElementById("display-panel").innerHTML+=" Prime count = "+prime;
-    document.getElementById("display-panel").innerHTML+=" Odd count "+ odd;
+    document.getElementById("display-panel").innerHTML = `<p>Given array: ${num} </p>`
+    document.getElementById("display-panel").innerHTML += `<p> Prime count = ${prime} Odd count = ${odd}</p>`;
 }
