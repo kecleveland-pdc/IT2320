@@ -66,17 +66,17 @@ function IsTropical(fruit)
 }
 function AddNumbers()
 {
-    document.getElementById("display-panel").innerHTML="";
+    const numbers = [2, 4, 6, 8, 10, 12, 14];
+    let sum = 0;
 
-    var numbers = [2,4,6,8,10,12,14];
+    document.getElementById("display-panel").innerHTML = "";
 
-    for (i=1;i<=numbers.length;i++)
-    {
-        var sum=0;    
-        sum+=numbers[i];
+    for (let i = 0; i <= numbers.length-1; i++)
+    { 
+        sum += numbers[i];
     }
     
-    document.getElementById("display-panel").innerHTML="Sum of numbers "+numbers+" is equal to "+sum;
+    document.getElementById("display-panel").innerHTML = `Sum of numbers ${numbers} is equal to ${sum}`; 
     
 }
 
