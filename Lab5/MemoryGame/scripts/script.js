@@ -12,7 +12,7 @@ const images = [
                     "resources/images/rocket.png",
                     "resources/images/sqirrel.png",
                 ]
-
+//ON WINDOW LOAD
 window.onload = function(){
     document.querySelectorAll('#board td')
     .forEach(e => e.addEventListener("click", function() {
@@ -24,10 +24,9 @@ window.onload = function(){
         //if element has not been clicked
         if(!matches.includes(id)){
             //Run
-            runCheck(id);
+            run(id);
         } else{
-            console.log("already taken");
-            console.log("Matches contains: " + matches);
+            console.log(`Already added ${id}\nMatches contains: ${matches}`);
             return false;
         }
     }));
@@ -42,10 +41,18 @@ window.onload = function(){
     shuffleTiles();
 }
 
+//RUN GAME
+function run(id){
+    matches.push(id);
+    console.log(`Added ${id}`);
+}
+
+//RESET
 function resetBoard(){
     window.location.reload(true);
 }
 
+//SET THE BOARD
 function setGameBoard(images){
     for (let i = 0; i <= images.length - 1; i++){
         for(let j = 0; j < 2; j++){
@@ -56,15 +63,17 @@ function setGameBoard(images){
     runCheck(gameTiles);
 }
 
+//SHUFFLE ON RELOAD / GAME START
 function shuffleTiles(){
     //appending to board
     console.log("Shuffling...");
     const board = document.querySelector("td");
     let shuffledCards = shuffle(gameTiles);
     runCheck(shuffledCards);
-    for (let i = 0; i < shuffledCards.length; i++){
-    //each element in array
-         //console.log(item);
+    for (let i = 0; i <= shuffledCards.length - 1; i++){
+        let curTile = document.getElementById(`${i}`)
+        console.log(curTile);
+        curTile.innerHTML = shuffledCards[i];
     };
 }
 
@@ -78,11 +87,11 @@ function shuffle(array) {
         
     }
     //swapped values
-    console.log("After shuffle");
-    console.log(array);
+    console.log(`After shuffle\n${array}`);
     return array;
 }
 
+//CHECK WHAT'S ADDED
 function runCheck(array){
     console.log(array.length);
     for(let i = 0; i < array.length - 1; i++){
