@@ -38,8 +38,8 @@
 }
 
 .board td {
-    border: 1px solid  rgb(138, 180, 171);
-    background-color: rgb(138, 180, 171);
+    /* border: 1px solid  rgb(138, 180, 171);
+    background-color: rgb(138, 180, 171); */
     color: #fff;
     height: 200px;
     width: 200px;
@@ -48,7 +48,6 @@
 }
 
 .board td:hover{
-    background-color:  rgb(171, 224, 160);
     color: #fff;
 }
 
@@ -57,4 +56,13 @@
     color: #fff;
     text-align: center;
     font-size: 100px;
+}
+
+/*OVERLAY*/
+.overlay {
+
+}
+
+.winner {
+    
 }

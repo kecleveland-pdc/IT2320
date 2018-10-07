@@ -2,32 +2,46 @@
 let gameTiles = []
 let gameBoard = []
 let matches = [];
+let curCards = [];
+let turns = 1;
 const images = [    
-                    "resources/images/cap.jpg",
-                    "resources/images/check.png",
-                    "resources/images/galaxy.jpg",
-                    "resources/images/letters.jpg",
-                    "resources/images/lion.png",
-                    "resources/images/present.png",
-                    "resources/images/rocket.png",
-                    "resources/images/sqirrel.png",
+                    {"id":"0", "value":"resources/images/cap.jpg"},
+                    {"id":"1", "value":"resources/images/check.png"},
+                    {"id":"2", "value":"resources/images/galaxy.jpg"},
+                    {"id":"3", "value":"resources/images/letters.jpg"},
+                    {"id":"4", "value":"resources/images/lion.png"},
+                    {"id":"5", "value":"resources/images/present.png"},
+                    {"id":"6", "value":"resources/images/rocket.png"},
+                    {"id":"7", "value":"resources/images/squirrel.png"},
                 ]
 //ON WINDOW LOAD
 window.onload = function(){
+    //set game board and shuffle tiles
+    setGameBoard(images);
+    shuffleTiles();
+
     document.querySelectorAll('#board td')
     .forEach(e => e.addEventListener("click", function() {
 
+        //get id 
         let id = this.id;
-        //check 
         console.log("Clicked " + id);
-        
+
         //if element has not been clicked
-        if(!matches.includes(id)){
-            //Run
-            run(id);
-        } else{
-            console.log(`Already added ${id}\nMatches contains: ${matches}`);
+        if(matches.includes(id)){
+            console.log(`Already clicked ${id}`)
             return false;
+        }   
+
+        //ADD MATCH
+        matches.push(id);
+        //CHECK WIN
+        if(!checkSuccess(id, matches)){
+            console.log("No win");
+            return false;
+        }else{
+            //WIN STATE
+            console.log("Win");
         }
     }));
 
@@ -36,15 +50,15 @@ window.onload = function(){
     .forEach(e => e.addEventListener("click", function() {
         resetBoard();
     }));
-
-    setGameBoard(images);
-    shuffleTiles();
 }
 
 //RUN GAME
 function run(id){
-    matches.push(id);
-    console.log(`Added ${id}`);
+    console.log(id);
+    let card = document.getElementById(`${id}`).children[0]
+    //console.log(card);
+    curCards.push(card) 
+    //console.log(`Added ${card}`);
 }
 
 //RESET
@@ -59,42 +73,55 @@ function setGameBoard(images){
             gameTiles.push(images[i])
         }
     }
-    console.log("Before shuffle");
-    runCheck(gameTiles);
+    //console.log("Before shuffle");
+    //runCheck(gameTiles);
 }
 
 //SHUFFLE ON RELOAD / GAME START
 function shuffleTiles(){
-    //appending to board
+    //SHUFFLE
     console.log("Shuffling...");
     const board = document.querySelector("td");
     let shuffledCards = shuffle(gameTiles);
-    runCheck(shuffledCards);
+    //runCheck(shuffledCards);
+    //UPDATE BOARD
     for (let i = 0; i <= shuffledCards.length - 1; i++){
         let curTile = document.getElementById(`${i}`)
-        console.log(curTile);
-        curTile.innerHTML = shuffledCards[i];
+        //console.log(curTile);
+        curTile.innerHTML = `<img class="image" src="${shuffledCards[i].value}">`;
     };
 }
 
 //DURSTENFELD FOR ES6
 //source: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
-//-->   https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm
+//------> https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1)); //round down, whole number
-        [array[i], array[j]] = [array[j], array[i]]; //swap values
-        
+        const j = Math.floor(Math.random() * (i + 1)); //round down --> get cur position in array + 1 (next position)
+        [array[i], array[j]] = [array[j], array[i]]; //swap those positions 
     }
-    //swapped values
-    console.log(`After shuffle\n${array}`);
+    //console.log(`After shuffle\n${array}`);
     return array;
 }
 
-//CHECK WHAT'S ADDED
-function runCheck(array){
-    console.log(array.length);
-    for(let i = 0; i < array.length - 1; i++){
-        console.log(array[i])
+function checkSuccess(array){
+    if(turns % 2 != 0) {
+        turns++;
+        console.log("One more turn");
+        return false;
+    }
+
+    console.log(array[0]);
+    if(array[0].id == array[1].id){
+        console.log("match");
+        return true;
     }
 }
+
+//CHECK WHAT'S ADDED
+// function runCheck(array){
+//     console.log(array.length);
+//     for(let i = 0; i < array.length - 1; i++){
+//         console.log(array[i])
+//     }
+// }
