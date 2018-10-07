@@ -1,6 +1,5 @@
 
 let gameTiles = []
-let gameBoard = []
 let matches = [];
 let shuffledTiles = [];
 let curTiles = [];
@@ -43,8 +42,7 @@ window.onload = function(){
         console.log(curTiles);
 
         //CHECK FOR WIN
-        console.log(checkSuccess(curTiles));
-
+        checkSuccess(curTiles);
     }));
 
     //button reset logic
@@ -116,9 +114,28 @@ function checkSuccess(array){
     console.log("checking win...");
     if(array[0].includes(array[1])){
         console.log(`Checking array: ${array[0]}\n${array[1]}`);
-        console.log("match");
+        console.log("Match. Win.");
+        document.getElementById("overlay").innerHTML = ("You win! Reloading...");
+        setTimeout(function(){ 
+            resetBoard(); 
+        }, 3000);
+
         return true;
+    }else{
+        console.log("No match. Lose.\nResetting.");
+        reset();
+        console.log(matches.length);
+        console.log(curTiles.length);
+        console.log(turns);
     }
+
+    return false;
+}
+
+function reset(){
+    matches = [];
+    curTiles = [];
+    turns = 1;
 }
 
 //CHECK WHAT'S ADDED
