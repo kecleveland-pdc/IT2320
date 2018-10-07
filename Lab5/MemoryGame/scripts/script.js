@@ -2,7 +2,8 @@
 let gameTiles = []
 let gameBoard = []
 let matches = [];
-let curCards = [];
+let shuffledTiles = [];
+let curTiles = [];
 let turns = 1;
 const images = [    
                     {"id":"0", "value":"resources/images/cap.jpg"},
@@ -35,14 +36,15 @@ window.onload = function(){
 
         //ADD MATCH
         matches.push(id);
-        //CHECK WIN
-        if(!checkSuccess(id, matches)){
-            console.log("No win");
-            return false;
-        }else{
-            //WIN STATE
-            console.log("Win");
-        }
+        //get curTile
+        let curTile = document.getElementById(id).children[0].src;
+        curTile = curTile.substring(curTile.indexOf("resources"), curTile.length);
+        curTiles.push(curTile);
+        console.log(curTiles);
+
+        //CHECK FOR WIN
+        console.log(checkSuccess(curTiles));
+
     }));
 
     //button reset logic
@@ -55,9 +57,9 @@ window.onload = function(){
 //RUN GAME
 function run(id){
     console.log(id);
-    let card = document.getElementById(`${id}`).children[0]
-    //console.log(card);
-    curCards.push(card) 
+    let card = document.getElementById(`${id}`).children[0].src;
+    console.log(card);
+    curCards.push(card);
     //console.log(`Added ${card}`);
 }
 
@@ -82,13 +84,13 @@ function shuffleTiles(){
     //SHUFFLE
     console.log("Shuffling...");
     const board = document.querySelector("td");
-    let shuffledCards = shuffle(gameTiles);
-    //runCheck(shuffledCards);
+    shuffledTiles = shuffle(gameTiles);
+    //runCheck(shuffledTiles;
     //UPDATE BOARD
-    for (let i = 0; i <= shuffledCards.length - 1; i++){
+    for (let i = 0; i <= shuffledTiles.length - 1; i++){
         let curTile = document.getElementById(`${i}`)
         //console.log(curTile);
-        curTile.innerHTML = `<img class="image" src="${shuffledCards[i].value}">`;
+        curTile.innerHTML = `<img class="image" src="${shuffledTiles[i].value}">`;
     };
 }
 
@@ -111,8 +113,9 @@ function checkSuccess(array){
         return false;
     }
 
-    console.log(array[0]);
-    if(array[0].id == array[1].id){
+    console.log("checking win...");
+    if(array[0].includes(array[1])){
+        console.log(`Checking array: ${array[0]}\n${array[1]}`);
         console.log("match");
         return true;
     }
