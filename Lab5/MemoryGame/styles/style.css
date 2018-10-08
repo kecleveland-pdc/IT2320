@@ -38,8 +38,7 @@
 }
 
 .board td {
-    /* border: 1px solid  rgb(138, 180, 171);
-    background-color: rgb(138, 180, 171); */
+    border: 1px solid  rgb(138, 180, 171);
     color: #fff;
     height: 200px;
     width: 200px;
@@ -48,17 +47,10 @@
 }
 
 .board td:hover{
-    color: #fff;
+    background-color: rgb(185, 253, 239);
 }
 
-.td-background{
-    background-color:  rgb(138, 180, 171);
-    color: #fff;
-    text-align: center;
-    font-size: 100px;
-}
-
-/*OVERLAY*/
-.cover {
-
-}
+.hidden {
+    background-color: rgb(138, 180, 171); 
+    display: none;
+} 

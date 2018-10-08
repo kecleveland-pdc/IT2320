@@ -33,8 +33,12 @@ window.onload = function(){
             return false;
         }   
 
+        //add class
+        document.getElementById(id).classList.add("cover");
         //ADD MATCH
         matches.push(id);
+        document.getElementById(id).children[0].classList.remove("hidden");
+
         //get curTile
         let curTile = document.getElementById(id).children[0].src;
         curTile = curTile.substring(curTile.indexOf("resources"), curTile.length);
@@ -42,7 +46,7 @@ window.onload = function(){
         console.log(curTiles);
 
         //CHECK FOR WIN
-        checkSuccess(curTiles);
+        checkSuccess(matches, curTiles);
     }));
 
     //button reset logic
@@ -73,8 +77,6 @@ function setGameBoard(images){
             gameTiles.push(images[i])
         }
     }
-    //console.log("Before shuffle");
-    //runCheck(gameTiles);
 }
 
 //SHUFFLE ON RELOAD / GAME START
@@ -87,8 +89,10 @@ function shuffleTiles(){
     //UPDATE BOARD
     for (let i = 0; i <= shuffledTiles.length - 1; i++){
         let curTile = document.getElementById(`${i}`)
-        //console.log(curTile);
-        curTile.innerHTML = `<img class="image" src="${shuffledTiles[i].value}">`;
+        let imgElement = document.createElement("img")
+        imgElement.src = `${shuffledTiles[i].value}`;
+        imgElement.classList.add("hidden", "image");
+       curTile.appendChild(imgElement);
     };
 }
 
@@ -123,16 +127,25 @@ function checkSuccess(array){
         return true;
     }else{
         console.log("No match. Lose.\nResetting.");
-        reset();
-        console.log(matches.length);
-        console.log(curTiles.length);
-        console.log(turns);
+        setTimeout(function(){ 
+            alert("No match. Try again...Resetting..."); 
+        }, 1000);
+
+        setTimeout(function(){ 
+            reset();
+        }, 1000);
     }
 
     return false;
 }
 
 function reset(){
+
+    console.log(matches);
+    for(i=0; i <= matches.length - 1; i++){
+        console.log(matches[i]);
+        document.getElementById(matches[i]).children[0].classList.add("hidden");
+    }
     matches = [];
     curTiles = [];
     turns = 1;
