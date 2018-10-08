@@ -46,7 +46,7 @@ window.onload = function(){
         console.log(curTiles);
 
         //CHECK FOR WIN
-        checkSuccess(matches, curTiles);
+        checkSuccess(curTiles);
     }));
 
     //button reset logic
@@ -116,10 +116,15 @@ function checkSuccess(array){
     }
 
     console.log("checking win...");
+    console.log(`Checking array: ${array[0]}\n${array[1]}`);
     if(array[0].includes(array[1])){
         console.log(`Checking array: ${array[0]}\n${array[1]}`);
         console.log("Match. Win.");
-        document.getElementById("overlay").innerHTML = ("You win! Reloading...");
+        setTimeout(function(){
+            document.getElementById("overlay").innerHTML = ("You win! Reloading...");
+        }, 500)
+        
+
         setTimeout(function(){ 
             resetBoard(); 
         }, 3000);
