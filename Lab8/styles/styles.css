@@ -1,0 +1,23 @@
+/* CONTENT */
+
+#main-div{
+    height: 500px;
+    width: 700px;
+    margin: 0 auto;
+    background-color: #cfcfe0;
+}
+
+/* SUB-CONTENT */
+#canvas{
+    height: 800px;
+    width: 1000px;
+}
+
+/* BUTTONS */
+#button-content{
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
