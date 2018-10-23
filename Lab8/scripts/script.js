@@ -3,10 +3,10 @@ $(function() {
     //attach event to each button
 
     //set div styles for containers and box
-    $("#canvas").height(800).width(1000).css({"margin" : "0 auto",});
-    $("#main-div").height(500).width(700).css({"background-color" : "#d18cbc","margin" : "0 auto",})
+    $("#canvas").height(500).width(500).css({"margin" : "0 auto",});
+    $("#main-div").height(500).width(500).css({"background-color" : "#d18cbc","margin" : "0 auto",})
     $("#button-content").css({"text-align" : "center", "margin-top" : "20px", "margin-bottom" : "20px",});
-    $("#main-box").height(100).width(100).css({"background-color" : "#0ffeff", "position" : "absolute",});
+    $("#main-box").height(50).width(50).css({"background-color" : "#0ffeff", "position" : "absolute",});
 
 
     let position = $("#main-box").position(); //main-box position
