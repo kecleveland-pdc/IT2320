@@ -35,12 +35,8 @@ $(function() {
     //left
     $("#button-3").on("click", function(){
         clearInterval(animation);
-        let curPosition = $("#main-box").position();
         animation = setInterval(function(){
-            //clear interval if past container
             $("#main-box").animate({left : "-=10%"});
-            curPosition = $("#main-box").position();
-            console.log("Cur " + Math.floor(curPosition.left) + " Original: " + Math.floor(originalPosition.left));
         }, 500);
     });
 
