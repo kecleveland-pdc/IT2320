@@ -104,7 +104,6 @@ function shuffle(array) {
         const j = Math.floor(Math.random() * (i + 1)); //round down --> get cur position in array + 1 (next position)
         [array[i], array[j]] = [array[j], array[i]]; //swap those positions 
     }
-    //console.log(`After shuffle\n${array}`);
     return array;
 }
 
@@ -155,11 +154,3 @@ function reset(){
     curTiles = [];
     turns = 1;
 }
-
-//CHECK WHAT'S ADDED
-// function runCheck(array){
-//     console.log(array.length);
-//     for(let i = 0; i < array.length - 1; i++){
-//         console.log(array[i])
-//     }
-// }
