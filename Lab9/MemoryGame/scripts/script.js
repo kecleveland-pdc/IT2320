@@ -15,47 +15,46 @@ $(document).ready(function(){
                         {"id":"6", "value":"resources/images/rocket.png"},
                         {"id":"7", "value":"resources/images/squirrel.png"},
                     ]
-    //ON WINDOW LOAD
-    window.onload = function(){
-        //set game board and shuffle tiles
+
+    // MAIN LOAD
+    $(window).on('load', function(){
+        //SET GAME BOARD & SHUFFLE
+        console.log("Window loaded");
         setGameBoard(images);
         shuffleTiles();
+
+        $("#board td").on("click", function(){
+            //refactored
+            console.log("Refactored main click function");
     
-    //     document.querySelectorAll('#board td')
-    //     .forEach(e => e.addEventListener("click", function() {
+            //get id 
+            let id = this.id;
+            console.log(`Clicked ${id}`);
     
-    //         //get id 
-    //         let id = this.id;
-    //         console.log("Clicked " + id);
+            //if element has not been clicked
+            if(matches.includes(id)){
+                console.log(`Already clicked ${id}`)
+                return false;
+            }   
     
-    //         //if element has not been clicked
-    //         if(matches.includes(id)){
-    //             console.log(`Already clicked ${id}`)
-    //             return false;
-    //         }   
+            //ADD MATCH
+            matches.push(id);
+            $(`#${id} img`).removeClass("hidden");
+
+            //GET CURRENT TILE AND ADD TO LIST
+            let curTile = $(`#${id} img`).attr('src');
+            curTile = curTile.substring(curTile.indexOf("resources"), curTile.length);
+            curTiles.push(curTile);
     
-    //         //add class
-    //         document.getElementById(id).classList.add("cover");
-    //         //ADD MATCH
-    //         matches.push(id);
-    //         document.getElementById(id).children[0].classList.remove("hidden");
+            //CHECK FOR WIN
+            checkSuccess(curTiles);
+        });
     
-    //         //get curTile
-    //         let curTile = document.getElementById(id).children[0].src;
-    //         curTile = curTile.substring(curTile.indexOf("resources"), curTile.length);
-    //         curTiles.push(curTile);
-    //         console.log(curTiles);
-    
-    //         //CHECK FOR WIN
-    //         checkSuccess(curTiles);
-    //     }));
-    
-    //     //button reset logic
-    //     document.querySelectorAll('#button')
-    //     .forEach(e => e.addEventListener("click", function() {
-    //         resetBoard();
-    //     }));
-    }
+        //button reset logic
+        $("button").on("click", function(){
+            resetBoard();
+        })
+    });
     
     //RUN GAME
     function run(id){
