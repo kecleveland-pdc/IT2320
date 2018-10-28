@@ -83,16 +83,15 @@ $(document).ready(function(){
     function shuffleTiles(){
         //SHUFFLE
         console.log("Shuffling...");
-        const board = document.querySelector("td");
+        const board = $("td");
         shuffledTiles = shuffle(gameTiles);
-        //runCheck(shuffledTiles;
+
         //UPDATE BOARD
-        for (let i = 0; i <= shuffledTiles.length - 1; i++){
-            let curTile = document.getElementById(`${i}`)
-            let imgElement = document.createElement("img")
-            imgElement.src = `${shuffledTiles[i].value}`;
-            imgElement.classList.add("hidden", "image");
-           curTile.appendChild(imgElement);
+        for (let i = 0; i <= shuffledTiles.length - 1; i++){ 
+            let curTile = $(`#${i}`);
+            $(curTile).append($("<img></img>")
+                    .attr('src', `${shuffledTiles[i].value}`)
+                    .addClass("hidden", "image"));
         };
     }
     
