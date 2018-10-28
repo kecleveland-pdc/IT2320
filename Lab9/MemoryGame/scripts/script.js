@@ -80,7 +80,6 @@ $(document).ready(function(){
     function shuffleTiles(){
         //SHUFFLE
         console.log("Shuffling...");
-        const board = $("td");
         shuffledTiles = shuffle(gameTiles);
 
         //UPDATE BOARD
@@ -116,7 +115,7 @@ $(document).ready(function(){
         if(array[0].includes(array[1])){
             console.log("Match. Win.");
             setTimeout(function(){
-                $("overlay").html("You win! Reloading...");
+                $("#overlay").html("You win! Reloading...");
             }, 500)
 
             setTimeout(function(){ 
