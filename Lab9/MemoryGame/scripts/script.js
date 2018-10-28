@@ -58,11 +58,8 @@ $(document).ready(function(){
     
     //RUN GAME
     function run(id){
-        console.log(id);
-        let card = document.getElementById(`${id}`).children[0].src;
-        console.log(card);
+        let card = $(`${id} img`).attr("src");
         curCards.push(card);
-        //console.log(`Added ${card}`);
     }
     
     //RESET
@@ -79,7 +76,7 @@ $(document).ready(function(){
         }
     }
     
-    //SHUFFLE ON RELOAD / GAME START
+    //SHUFFLE ON RELOAD ->  GAME START
     function shuffleTiles(){
         //SHUFFLE
         console.log("Shuffling...");
@@ -106,6 +103,7 @@ $(document).ready(function(){
         return array;
     }
     
+    //CHECK SUCCESS
     function checkSuccess(array){
         if(turns % 2 != 0) {
             turns++;
@@ -116,13 +114,11 @@ $(document).ready(function(){
         console.log("checking win...");
         console.log(`Checking array: ${array[0]}\n${array[1]}`);
         if(array[0].includes(array[1])){
-            console.log(`Checking array: ${array[0]}\n${array[1]}`);
             console.log("Match. Win.");
             setTimeout(function(){
-                document.getElementById("overlay").innerHTML = ("You win! Reloading...");
+                $("overlay").html("You win! Reloading...");
             }, 500)
-            
-    
+
             setTimeout(function(){ 
                 resetBoard(); 
             }, 3000);
@@ -147,7 +143,7 @@ $(document).ready(function(){
         console.log(matches);
         for(i=0; i <= matches.length - 1; i++){
             console.log(matches[i]);
-            document.getElementById(matches[i]).children[0].classList.add("hidden");
+            $(`#${matches[i]} img`).addClass("hidden");
         }
         matches = [];
         curTiles = [];
