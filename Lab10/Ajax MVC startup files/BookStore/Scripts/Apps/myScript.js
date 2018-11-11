@@ -15,6 +15,21 @@
 
     */
 
+    //attach click event to button with id search2
+    $("#search2").click(function () {
+        var searchstring = $("#YearSearch").val();
+        var url = "/Books/SearchbyYear";
+        console.log(`Clicked ${searchstring}`)
+
+        $.get(url, { "year": searchstring}, function (data) {
+            console.log(data);
+            $.each(data, function (i, item) {
+                var para = $("<p></p>").text(item.Id + " " + item.Title + " " + item.Year);
+                $("#results2").append(para);
+            });
+        });
+    });
+
     $("#search").on("click", function () {
 
         var searchstring = $("#AuthorSearch").val();
