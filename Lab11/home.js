@@ -23,11 +23,6 @@ $(function(){
     });
 
     $("#btn2").on("click", function(){
-        //Go to https://www.petfinder.com/developers/api-key to get an api key
-        //Add the API key to the URL
-        //PetFinder API Key 551b527add03634ac3a95a7a967367e6
-        //PetFinder API Secret 6a5a2731d31fb44b2d2303c7686c5278
-        
         const key = "551b527add03634ac3a95a7a967367e6";           
         var animal = $("#breedsearch").val();
         var url = "http://api.petfinder.com/breed.list?format=json&key="+key+"&callback=?&animal="+animal+"&format=json";
@@ -41,7 +36,7 @@ $(function(){
               console.log(data);
               $("ul").remove();
               var ul = $("<ul>Breeds</ul>");
-              $("#breedresults").after(ul);
+              $("#breedresults").append(ul);
               
               $.each(data.petfinder.breeds.breed,function(i,breed){                  
                     var li = $("<li></li>").text(breed.$t);
@@ -51,5 +46,40 @@ $(function(){
 
          });//ajax  
     });  //btn click
-   
+
+    //test
+    $("#btn3").on("click", function(){
+        //Go to https://www.petfinder.com/developers/api-key to get an api key
+        //Add the API key to the URL
+        //PetFinder API Key 7ca41b0ec396887de2e110e7a3c60b80
+        //PetFinder API Secret 10a153f11c80453bb7564cbd501fadef
+        
+        const key = "7ca41b0ec396887de2e110e7a3c60b80"; 
+        var location = $("#location").val();
+        var size = $("#size").val();
+        var sex = $("#sex").val();
+        var animal = $("#animal").val();        
+        var breed = $("#breed").val();
+        var url = "http://api.petfinder.com/pet.find?callback=?&format=json&key="+key+"&callback=?&location="+location+"&size="+size+"&sex="+sex+"&breed="+breed+"&animal="+animal+"&_=&format=json";
+        console.log(url);
+       $.ajax({
+           url: url,           
+           type: "GET", 
+           dataType: "jsonp",      
+           contentType: "application/json; charset=utf-8",
+           crossDomain: true,                   
+           success: function(data){              
+              console.log(data);
+              $("ul").remove();
+              var ul = $("<ul>PETS</ul>");
+              $("#petresults").after(ul);
+              
+              $.each(data.petfinder.pets.pet,function(i,pet){ 
+                var div = $("<div></div>");
+                var li = $("<li></li>").text("Name: " + pet.name.$t + "\t Id: " + pet.id.$t + " Contact: " + pet.contact.phone.$t);
+                $("ul").append(li);
+              });                      
+            }                     
+         });//ajax  
+    });  //btn click
 })
