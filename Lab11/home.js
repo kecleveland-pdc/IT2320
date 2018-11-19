@@ -75,9 +75,10 @@ $(function(){
               $("#petresults").after(ul);
               
               $.each(data.petfinder.pets.pet,function(i,pet){ 
-                var div = $("<div></div>");
-                var li = $("<li></li>").text("Name: " + pet.name.$t + "\t Id: " + pet.id.$t + " Contact: " + pet.contact.phone.$t);
+                var li = $("<li></li>").text("Name: " + pet.name.$t + " Id: " + pet.id.$t + " Contact: " + pet.contact.phone.$t);
+                var li2 = $("<li id=li2><li>").text("Description: " + pet.description.$t)
                 $("ul").append(li);
+                $("ul").append(li2);
               });                      
             }                     
          });//ajax  
