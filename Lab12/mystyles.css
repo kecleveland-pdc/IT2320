@@ -1,0 +1,150 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 5px;    
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-style: none;
+    border-radius: 2px;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: darkcyan;    
+}
+
+h1
+{
+    color: darkcyan;
+    font-size: 30;
+}
+
+h4
+{
+    color: lightcyan;
+    font-size: 20;
+}
+
+#wrapper
+{
+    width: 100%;    
+}
+
+.center-article
+{
+        
+    background-color: lightblue; /* For browsers that do not support gradients */
+    background-image: linear-gradient(lightblue, white); /* Standard syntax (must be last) */
+    width: 75%;    
+    padding: 20px;
+    margin-left: 10%;
+    float: left;
+    text-align: justify;
+}
+
+.article-column-style
+{
+    width: 70%;
+    float: left;    
+}
+
+aside h1
+{
+    color: olive;
+}
+
+aside
+{               
+    border-radius: 5px;
+    float: right;
+    width: 20%;
+    margin: 25px 5px 10px 5px;
+    padding: 5px;    
+}
+
+aside ul
+{
+    background-color: white;
+}
+
+aside li
+{
+    padding: 5px;
+}
+section a
+{
+    text-decoration: none;
+    background-color: darkcyan;
+    padding: 1em;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 10px 5px 5px lightgrey;
+}
+
+.main
+{
+    margin: 0 auto;
+    display: table;
+    width: 100%;
+    border-color: lightblue;
+    border-radius: 2px;
+    background-color: lightblue; /* For browsers that do not support gradients */
+    background-image: linear-gradient(lightblue, white); /* Standard syntax (must be last) */
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 10px 10px 10px lightgrey;
+}
+.col
+{
+    width: 40%;
+    float: left;    
+    margin: 0;
+    padding-top: 20px;
+    text-align: justify;
+
+}
+
+.main:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+img
+{    
+    padding: 10px;
+    transform: scale(0.75,0.75);
+}
+
+footer
+{
+    text-align: center;    
+    font-size: 0.85em;
+    clear: both;
+    background-color: lightgrey;    
+    padding: 10px;
+    margin: 10px;
+}
+
+footer a
+{
+    text-decoration: none;
+    background-color: #111;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 5px;
+    color: #fff;  
+}
