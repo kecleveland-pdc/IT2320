@@ -48,14 +48,14 @@ $(function(){
     });  //btn click
 
     //test
-    $("#btn3").on("click", function(){
+    $("#submit").click(function(){
         //Go to https://www.petfinder.com/developers/api-key to get an api key
         //Add the API key to the URL
         //PetFinder API Key 7ca41b0ec396887de2e110e7a3c60b80
         //PetFinder API Secret 10a153f11c80453bb7564cbd501fadef
         
         const key = "7ca41b0ec396887de2e110e7a3c60b80"; 
-        var location = $("#location").val();
+        var location = $("#zip").val();
         var size = $("#size").val();
         var sex = $("#sex").val();
         var animal = $("#animal").val();        
@@ -70,16 +70,13 @@ $(function(){
            crossDomain: true,                   
            success: function(data){              
               console.log(data);
-              $("ul").remove();
-              var ul = $("<ul>PETS</ul>");
-              $("#petresults").after(ul);
               
-              $.each(data.petfinder.pets.pet,function(i,pet){ 
-                var li = $("<li></li>").text("Name: " + pet.name.$t + " Id: " + pet.id.$t + " Contact: " + pet.contact.phone.$t);
-                var li2 = $("<li id=li2><li>").text("Description: " + pet.description.$t)
-                $("ul").append(li);
-                $("ul").append(li2);
-              });                      
+              //$.each(data.petfinder.pets.pet,function(i,pet){ 
+                // var li = $("<li></li>").text("Name: " + pet.name.$t + " Id: " + pet.id.$t + " Contact: " + pet.contact.phone.$t);
+                // var li2 = $("<li id=li2><li>").text("Description: " + pet.description.$t)
+                // $("ul").append(li);
+               // $("ul").append(li2);
+             // });                      
             }                     
          });//ajax  
     });  //btn click

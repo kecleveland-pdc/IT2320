@@ -1,11 +1,57 @@
-.pet, section{
-    margin-bottom: 1em;
- 
+/*BODY */
+
+/*CONTAINER*/
+#container h1{
+    text-align: center;
+}
+/* FORM */
+#form{
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #e6eaec;
+    padding: 20px;
+    color: rgb(99, 89, 89);
 }
 
-.pet label{
-    margin-right: 0.5em;
+input[type=submit] {
+    width: 25%;
+    background-color:#4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
-section{
-    margin-bottom: 1em;
+
+input[type=submit]:hover {
+    width: 25%;
+    background-color: #fff;
+    color: #000;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 5px;
+    border-color: #4CAF50;
+    border-radius: 4px;
 }
+
+input[type=text], select{
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=text], select, label {
+    display: block;
+}
+
+/*RESULTS*/
+
+
+
