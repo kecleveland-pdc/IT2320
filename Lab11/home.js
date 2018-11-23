@@ -48,36 +48,39 @@ $(function(){
     });  //btn click
 
     //test
-    $("#submit").click(function(){
+    $("#submit").click(function(e){
         //Go to https://www.petfinder.com/developers/api-key to get an api key
         //Add the API key to the URL
         //PetFinder API Key 7ca41b0ec396887de2e110e7a3c60b80
         //PetFinder API Secret 10a153f11c80453bb7564cbd501fadef
-        
+        e.preventDefault();
+
         const key = "7ca41b0ec396887de2e110e7a3c60b80"; 
-        var location = $("#zip").val();
+        var location = $("#zipcode").val()
         var size = $("#size").val();
         var sex = $("#sex").val();
         var animal = $("#animal").val();        
         var breed = $("#breed").val();
         var url = "http://api.petfinder.com/pet.find?callback=?&format=json&key="+key+"&callback=?&location="+location+"&size="+size+"&sex="+sex+"&breed="+breed+"&animal="+animal+"&_=&format=json";
         console.log(url);
+        console.log(location);
        $.ajax({
            url: url,           
            type: "GET", 
            dataType: "jsonp",      
            contentType: "application/json; charset=utf-8",
-           crossDomain: true,                   
+           crossDomain: true,  
+           //processData: true,                 
            success: function(data){              
               console.log(data);
-              
-              //$.each(data.petfinder.pets.pet,function(i,pet){ 
-                // var li = $("<li></li>").text("Name: " + pet.name.$t + " Id: " + pet.id.$t + " Contact: " + pet.contact.phone.$t);
-                // var li2 = $("<li id=li2><li>").text("Description: " + pet.description.$t)
-                // $("ul").append(li);
-               // $("ul").append(li2);
-             // });                      
-            }                     
+              var div = $('<div id="result-div"><div>')
+              $.each(data.petfinder.pets.pet,function(i,pet){ 
+                var p = $('<p></p>').append('<strong>Name: </strong>' + pet.name.$t);
+                var description = $('<p></p>');
+                $(div).append(p);
+              });  
+              $("#results").html(div);              
+            }   
          });//ajax  
     });  //btn click
 })

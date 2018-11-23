@@ -27,25 +27,40 @@
                 <form id="form">
                     <br/>
                     <label for="animal">Animal</label>
-                    <input type="text" id="animal" name="animal" placeholder="Animal type">
+                    <input type="text" id="animal" name="animal" placeholder="Dog, cat, horse...">
                     <label for="breed">Breed</label>
-                    <input type="text" id="breed" name="breed" placeholder="Breed type">
+                    <input type="text" id="breed" name="breed" placeholder="Collie, Field Spaniel, Border Collie...">
                     <label for="sex">Sex</label>
                     <select id="sex" name="sex">
+                      <option selected hidden style='display: none' value="">--Select--</option>
                       <option value="M">Male</option>
                       <option value="F">Female</option>
+                      <option value="">Doesn't matter!</option>
                     </select>
-                    <label for="sex">Size</label>
-                    <select id="sex" name="sex">
+                    <label for="size">Size</label>
+                    <select id="size" name="size">
+                        <option selected hidden style='display: none' value=''>--Select--</option>
+                        <option value="">Doesn't matter!</option>
                         <option value="S">Small</option>
                         <option value="M">Medium</option>
                         <option value="L">Large</option>
+                        <option value="XL">X-Large</option>
                     </select>
                     <label for="zip-code">Zip code</label>
-                    <input type="text" required id="zip" name="zipcode" placeholder="12345" oninvalid="this.setCustomValidity('Please enter zip code')">
+                   <!-- <input type="text" required pattern=".{5,5}" id="zip" name="zipcode" placeholder="12345" oninvalid="this.setCustomValidity('Please enter 5-digit zip code')">-->
+                    <input type="text" id="zipcode" name="zipcode" placeholder="5-digit zip-code">
                     <input type="submit" id="submit" value="submit">
                 </form> 
-                <div id="petresults"></div>
+                <div id="results">
+                    <!-- <table>
+                        <tr>
+                            <th id="Name">Name</th>
+                            <th id="Id">ID</th>
+                            <th id="Contact">Contact</th>
+                            <th id="Description">Description</th>
+                        </tr>
+                    </table> -->
+                </div>
             </div>
         </section>
     </body>
