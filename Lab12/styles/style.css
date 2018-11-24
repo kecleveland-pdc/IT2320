@@ -3,18 +3,19 @@
 
 * {
     box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
 }
 
-/* NAV */
-.navigation{
-    background-color: rgb(202, 181, 181);
+/* NAV HEADER*/
+.navigation-header{
+    background-color: #fff;
     overflow: hidden;
 }
 
-.navigation {
+.navigation-header a {
     float: left;
     display: block;
-    color: #fff;
+    color: #000;
     text-align: center;
     padding: .75em 1em;
     text-decoration: none;
