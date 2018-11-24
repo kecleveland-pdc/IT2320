@@ -51,7 +51,7 @@ $(function(){
         e.preventDefault();
 
         const key = "7ca41b0ec396887de2e110e7a3c60b80"; 
-        var location = $("#zipcode").val()
+        var location = $("#zipcode").val();
         var size = $("#size").val();
         var sex = $("#sex").val();
         var animal = $("#animal").val();        
@@ -64,22 +64,20 @@ $(function(){
            type: "GET", 
            dataType: "jsonp",      
            contentType: "application/json; charset=utf-8",
-           crossDomain: true,  
-           //processData: true,                 
+           crossDomain: true,                 
            success: function(data){              
-              console.log(data);
-              var div = $('<div id="result-div"><div>')
+              var div = $("<div id='result-div'><div>")
               $.each(data.petfinder.pets.pet,function(i,pet){ 
                 var petdiv = $("<div id='petdiv' class='shadow'></div>")
-                var p = $('<p></p>').append('<strong>Name: </strong>' + pet.name.$t + " <strong>ID:</strong> " + pet.id.$t);
-                var contact = $('<p></p>').append("<strong>Contact:</strong> " + pet.contact.phone.$t)
+                var p = $("<p></p>").append("<strong>Name: </strong>" + pet.name.$t + " <strong>ID:</strong> " + pet.id.$t);
+                var contact = $('<p></p>').append("<strong>Contact:</strong> " + pet.contact.phone.$t);
                 var description = $('<p></p>').append(pet.description.$t);
                 $(petdiv).append(p);
                 $(petdiv).append(contact);
                 $(petdiv).append(description);
                 $(div).append(petdiv);
               });
-              $("#results").html(div);              
+              $("#results").html(div);          
             }   
          });//ajax  
     });  //btn click
