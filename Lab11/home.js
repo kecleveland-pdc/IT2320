@@ -1,6 +1,5 @@
 
 $(function(){
-
 //jQuery code goes here
     $("#btn1").on("click", function(){
         var url = "https://api.flickr.com/services/feeds/photos_public.gne?&format=json&jsoncallback=?&tags="
@@ -45,14 +44,10 @@ $(function(){
             }                     
 
          });//ajax  
-    });  //btn click
+    }); //btn click
 
     //test
     $("#submit").click(function(e){
-        //Go to https://www.petfinder.com/developers/api-key to get an api key
-        //Add the API key to the URL
-        //PetFinder API Key 7ca41b0ec396887de2e110e7a3c60b80
-        //PetFinder API Secret 10a153f11c80453bb7564cbd501fadef
         e.preventDefault();
 
         const key = "7ca41b0ec396887de2e110e7a3c60b80"; 
@@ -75,10 +70,15 @@ $(function(){
               console.log(data);
               var div = $('<div id="result-div"><div>')
               $.each(data.petfinder.pets.pet,function(i,pet){ 
-                var p = $('<p></p>').append('<strong>Name: </strong>' + pet.name.$t);
-                var description = $('<p></p>');
-                $(div).append(p);
-              });  
+                var petdiv = $("<div id='petdiv' class='shadow'></div>")
+                var p = $('<p></p>').append('<strong>Name: </strong>' + pet.name.$t + " <strong>ID:</strong> " + pet.id.$t);
+                var contact = $('<p></p>').append("<strong>Contact:</strong> " + pet.contact.phone.$t)
+                var description = $('<p></p>').append(pet.description.$t);
+                $(petdiv).append(p);
+                $(petdiv).append(contact);
+                $(petdiv).append(description);
+                $(div).append(petdiv);
+              });
               $("#results").html(div);              
             }   
          });//ajax  
