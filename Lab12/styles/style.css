@@ -2,13 +2,13 @@
 
 * {
     box-sizing: border-box;
-    margin: 0;
+    margin-left: 0px;
     font-family: 'Karla', sans-serif;
 } 
 
 /*MAIN*/
 body{
-
+    margin-bottom: 5%;
 }
 
 #wrapper{
@@ -140,7 +140,9 @@ seciton header{
     margin-right:  1em;  
 }
 
-
+#wrapper section{
+    max-width: 70%;
+}
 /*IMAGES*/
 .responsive {
     width: 100%;
@@ -171,5 +173,6 @@ footer{
     left: 0;
     bottom: 0;
     width: 100%;
+    height:5%
 }
 
