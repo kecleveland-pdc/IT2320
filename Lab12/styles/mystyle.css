@@ -1,3 +1,5 @@
+/* * */
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -87,10 +89,10 @@ aside li
 section a
 {
     text-decoration: none;
-    background-color: darkcyan;
+   /*background-color: darkcyan;*/
     padding: 1em;
     border-radius: 5px;
-    color: #fff;
+   /* color: #fff;*/
     box-shadow: 10px 5px 5px lightgrey;
 }
 
@@ -101,7 +103,7 @@ section a
     width: 100%;
     border-color: lightblue;
     border-radius: 2px;
-    background-color: lightblue; /* For browsers that do not support gradients */
+    /*background-color: lightblue; /* For browsers that do not support gradients 
     background-image: linear-gradient(lightblue, white); /* Standard syntax (must be last) */
     padding: 20px;
     margin: 20px;

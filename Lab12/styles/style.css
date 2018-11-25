@@ -1,0 +1,178 @@
+/* * */
+
+* {
+    box-sizing: border-box;
+    margin-left: 0px;
+    font-family: 'Karla', sans-serif;
+} 
+
+/*MAIN*/
+body{
+    margin-bottom: 5%;
+}
+
+#wrapper{
+    margin-left: 1em;
+}
+
+#main-header{
+    width: 100%;
+    height: 100vh;
+	position: relative;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	background-color: #000;
+	font-family: "Montserrat";
+	font-size: 30px;
+	text-transform: uppercase;
+	letter-spacing: 10px;
+}
+
+h1{
+	text-transform: uppercase;
+    position: relative;
+    padding-bottom: 1em;
+}
+
+/* NAV HEADER*/
+.navigation-header{
+    background-color: #000;
+    overflow: hidden;
+}
+
+.navigation-header a {
+    text-decoration: none;
+    float: left;
+    display: block;
+    text-align: center;
+    font-size: 1em; 
+    color: #fff;
+    padding: .75em 1em;
+}
+
+.navigation-header a:active{
+    background-color: #4CAF50;
+    color: white;
+}
+
+.navigation-header a:hover{
+    background-color: #ddd;
+    color: black;
+}
+
+.navigation-header .icon {
+    display: none;
+}
+
+/* MEDIA QUERIES FOR NAVIGATION-HEADER, ASIDE, FOOTER*/
+@media screen and (max-width: 600px) {
+    .navigation-header a:not(:first-child) {display: none;}
+    .navigation-header a.icon {
+      float: right;
+      display: block;
+    }
+}
+  
+@media screen and (max-width: 610px) {
+  .navigation-header.responsive {position: relative;}
+  .navigation-header.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navigation-header.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  #main-header, h1{
+      text-align:center;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+    aside {      
+        border-radius: 5px;
+        float: none;
+        width: 70%;
+        margin: 25px 5px 10px 5px;
+        padding: 5px;    
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    aside{
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 900px) {
+    footer{
+      display: none;
+    }
+  }
+
+/*CONTENT*/
+
+/* aside{
+    width: 70%;
+} */
+
+section, 
+section header, 
+aside header, 
+.main{
+    margin-top: 1em;
+}
+
+seciton header{
+    margin-bottom: 1em;
+}
+
+
+.article-column-style
+{
+    width: 70%;
+    float: left;  
+    margin-right:  1em;  
+}
+
+#wrapper section{
+    max-width: 70%;
+}
+/*IMAGES*/
+.responsive {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 1em;
+}
+
+header a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #0758a3;
+}
+
+header a:hover {
+    color: #90bbff;
+}
+
+/*FOOTER*/
+footer{
+    background-color: #000;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:5%
+}
+
