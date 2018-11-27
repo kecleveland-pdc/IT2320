@@ -1,0 +1,15 @@
+Using HTML 5 Canvas and javascript, add the following to the Sample that I have provided. All buttons are available. Just hook up to new functions and write code.
+
+Path:
+Create a random path with atleast 5 lines. Change the color of each line.
+
+Triangle:
+Create a right-angled triangle
+Create a triangle with all sides having different lengths
+
+Square:
+Create a square with rounded edges (Hint use the arcTo() as shown in drawArc method in the sameple code to create rounded edges)
+
+
+
+
