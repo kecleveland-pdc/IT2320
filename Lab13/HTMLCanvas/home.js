@@ -36,6 +36,18 @@ window.onload=function(){
     document.getElementById("stopAnimation").addEventListener("click",function(){
         clearInterval(animation);   
     });
+
+    document.getElementById("randomPath").addEventListener("click",function(){
+        drawRandomPath();  
+    });
+
+    document.getElementById("triangle").addEventListener("click",function(){
+        drawTriangle();  
+    });
+
+    document.getElementById("roundedSquare").addEventListener("click",function(){
+        drawRoundedSquare(); 
+    });
     
 }
 
@@ -202,4 +214,16 @@ function drawCircleAnimation()
         endAngle = 0.1;
         ctx.clearRect(0,0,1000,1000);//Reset canvas to blank canvas 
     }   
+}
+
+function drawTriangle(){
+
+}
+
+function drawRandomPath(){
+
+}
+
+function drawRoundedSquare(){
+
 }
