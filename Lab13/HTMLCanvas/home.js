@@ -218,10 +218,9 @@ function drawCircleAnimation()
 
 function drawTriangle(){
     console.log("clicked");
-    ctx.clearRect(0,0,1000,1000);//Reset canvas to blank canvas 
+    ctx.clearRect(0,0,1000,1000);
     ctx.resetTransform();
-    ctx.strokeStyle = "#0000FF";
-    ctx.clearRect(0,0,1000,1000);//Reset canvas to blank canvas        
+    ctx.strokeStyle = "#0000FF";    
     ctx.beginPath();
     ctx.moveTo(25, 25);
     ctx.lineTo(25, 200);
@@ -260,9 +259,16 @@ function drawRandomPath(){
 
 }
 function drawRoundedSquare(){
-    ctx.clearRect(0,0,1000,1000);//Reset canvas to blank canvas 
+    ctx.clearRect(0,0,1000,1000);
     ctx.resetTransform();
     ctx.strokeStyle = "#0000FF";
-    ctx.moveTo(20,50);
-    ctx.stroke();        
+    const radius = 60;
+    ctx.beginPath();     
+    ctx.moveTo(80,20); //(x,y) 
+    ctx.arcTo(200,20,200,200,radius); //(x1,y1,x2,y2,radius);
+    ctx.arcTo(200,200,20,200,radius);
+    ctx.arcTo(20,200,20,20,radius);
+    ctx.arcTo(20,20,200,20,radius);
+    ctx.closePath();
+    ctx.stroke();    
 }
