@@ -217,13 +217,52 @@ function drawCircleAnimation()
 }
 
 function drawTriangle(){
+    console.log("clicked");
+    ctx.clearRect(0,0,1000,1000);//Reset canvas to blank canvas 
+    ctx.resetTransform();
+    ctx.strokeStyle = "#0000FF";
+    ctx.clearRect(0,0,1000,1000);//Reset canvas to blank canvas        
+    ctx.beginPath();
+    ctx.moveTo(25, 25);
+    ctx.lineTo(25, 200);
+    ctx.lineTo(200, 200);
+    ctx.closePath();
+    ctx.stroke();
 
+    ctx.beginPath();
+    ctx.moveTo(210, 200);
+    ctx.lineTo(300, 400);
+    ctx.lineTo(275, 25);
+    ctx.closePath();
+    ctx.stroke();
 }
 
 function drawRandomPath(){
+    ctx.clearRect(0,0,1000,1000);
+    c = document.getElementById("myCanvas");
+    let rand1= c.width*Math.random();
+    let rand2 = c.width*Math.random();
+    let rand3= c.width*Math.random();
+    let rand4 = c.width*Math.random();
+    let rand5 = c.width*Math.random();
+    let rand6 = c.width*Math.random();
+    let rand7 = c.width*Math.random();
+
+    ctx.strokeStyle = "#0000FF";
+    ctx.beginPath();
+    ctx.moveTo(rand1,rand2);
+    ctx.lineTo(rand1,rand3);
+    ctx.lineTo(rand3,rand4) 
+    ctx.lineTo(rand4,rand5) 
+    ctx.lineTo(rand5,rand6) 
+    ctx.lineTo(rand6,rand7) 
+    ctx.stroke();
 
 }
-
 function drawRoundedSquare(){
-
+    ctx.clearRect(0,0,1000,1000);//Reset canvas to blank canvas 
+    ctx.resetTransform();
+    ctx.strokeStyle = "#0000FF";
+    ctx.moveTo(20,50);
+    ctx.stroke();        
 }
